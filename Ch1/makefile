@@ -1,4 +1,4 @@
-SRCS		= 
+SRCS		=  
 CFLAGS		= -Wall -Wextra -Werror
 CC			= g++
 INC			= -I./includes
