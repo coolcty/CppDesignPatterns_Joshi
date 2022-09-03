@@ -128,6 +128,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CppDesignPatterns_Joshi.cpp" />
+    <ClCompile Include="Random1.cpp" />
+    <ClCompile Include="SimpleMCMain1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Random1.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CppDesignPatterns_Joshi.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
