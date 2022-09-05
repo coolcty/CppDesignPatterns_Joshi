@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}",
-                "${workspaceFolder}/Ch3/includes"
+                "${workspaceFolder}/Ch3/includes",
+                "${workspaceFolder}/Ch5/includes"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",
