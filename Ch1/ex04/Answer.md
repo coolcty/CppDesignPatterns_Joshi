@@ -6,4 +6,3 @@ Statistic
 Price
 CalculateMode
 Model
-
