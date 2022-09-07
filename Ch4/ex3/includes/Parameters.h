@@ -1,0 +1,63 @@
+#pragma once
+#include<memory>
+#include<vector>
+
+class ParametersInner {
+public:
+    ParametersInner() {}
+
+    virtual std::unique_ptr<ParametersInner> clone()const = 0;
+    virtual double Integral(double time1, double time2)const = 0;
+    virtual double IntegralSquare(double time1, double time2)const = 0;
+    virtual ~ParametersInner() {}
+private:
+};
+
+class Parameters {
+public:
+    Parameters(const ParametersInner& innerObject);
+    Parameters(const Parameters& original);
+    Parameters& operator=(const Parameters& original);
+    //virtual ~Parameters();
+
+    inline double Integral(double time1, double time2)const;
+    inline double IntegralSquare(double time1, double time2)const;
+
+    double Mean(double time1, double time2)const;
+    double RootMeanSqure(double time1, double time2)const;
+
+private:
+    std::unique_ptr<ParametersInner> InnerObjectPtr;
+};
+
+inline double Parameters::Integral(double time1, double time2)const {
+    return InnerObjectPtr->Integral(time1, time2);
+}
+
+inline double Parameters::IntegralSquare(double time1, double time2)const {
+    return InnerObjectPtr->IntegralSquare(time1, time2);
+}
+
+class ParametersConstant : public ParametersInner {
+public:
+    ParametersConstant(double constant);
+
+    virtual std::unique_ptr<ParametersInner> clone()const;
+    virtual double Integral(double time1, double time2)const;
+    virtual double IntegralSquare(double time1, double time2)const;
+
+private:
+    double Constant;
+    double ConstantSquare;
+};
+
+
+class ParametersPiecewiseConstant : public ParametersInner {
+public:
+    ParametersPiecewiseConstant(std::vector<double>& times_, std::vector<double>& constants_);
+    virtual std::unique_ptr<ParametersInner> clone()const;
+    virtual double Integral(double time1, double time2)const;
+    virtual double IntegralSquare(double time1, double time2)const;
+private:
+    std::vector<double> Times, Constants, ConstantsSquare;
+};
