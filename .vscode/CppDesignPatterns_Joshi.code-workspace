@@ -41,7 +41,12 @@
 			"typeinfo": "cpp",
 			"utility": "cpp",
 			"ctime": "cpp",
-			"iomanip": "cpp"
+			"iomanip": "cpp",
+			"bit": "cpp",
+			"memory": "cpp",
+			"set": "cpp",
+			"chrono": "cpp",
+			"ratio": "cpp"
 		}
 	}
 }
